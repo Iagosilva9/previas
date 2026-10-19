@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow"><!-- prévia: remover após aprovação do cliente -->
+<meta name="description" content="Studio & Modas Maria Isabel: beleza e moda no mesmo lugar.">
+<title>Studio & Modas Maria Isabel</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap">
+<style>
+/* Layout: logo-circle hero, two offer panels (Studio / Modas), visit block, rose + black identity from the Instagram avatar */
+:root{
+  --bg:#fff7f7; --surface:#ffffff; --fg:#1b1416; --muted:#6e5a5f;
+  --rose:#e8909b; --rose-deep:#b84a5c; --ink:#1b1416; --line:#f0d4d8;
+  --on-rose:#1b1416;
+  --script:'Pinyon Script','Snell Roundhand',cursive;
+  --sans:'Jost','Segoe UI',system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#150f11; --surface:#1f1618; --fg:#fbeef0; --muted:#c3a8ae;
+  --rose:#e8909b; --rose-deep:#f0a3ad; --ink:#fbeef0; --line:#3a292d; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#150f11; --surface:#1f1618; --fg:#fbeef0; --muted:#c3a8ae;
+  --rose:#e8909b; --rose-deep:#f0a3ad; --ink:#fbeef0; --line:#3a292d; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:400 17px/1.65 var(--sans);margin:0}
+.wrap{max-width:1000px;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px)) max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--rose-deep);outline-offset:3px}
+
+header{padding-block:40px 8px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.mark{width:48px;height:48px;border-radius:50%;background:var(--rose);display:grid;place-items:center;font:400 26px/1 var(--script);color:var(--on-rose)}
+.brand span{font:400 13px/1.3 var(--sans);letter-spacing:.18em;text-transform:uppercase}
+nav{display:flex;gap:22px;font-size:14px;letter-spacing:.12em;text-transform:uppercase}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--fg)}
+
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding-block:48px 64px}
+.hero h1{margin:0;font:400 clamp(52px,9vw,96px)/1 var(--script);color:var(--rose-deep)}
+.hero h1 small{display:block;font:300 14px/1.4 var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--fg);margin-bottom:14px}
+.hero p{max-width:46ch;color:var(--muted);margin:22px 0 28px;text-wrap:pretty}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;padding:13px 26px;border-radius:999px;text-decoration:none;font-size:14px;letter-spacing:.14em;text-transform:uppercase;border:1.5px solid var(--ink)}
+.btn.fill{background:var(--ink);color:var(--bg)}
+.btn:hover{background:var(--rose);border-color:var(--rose);color:var(--on-rose)}
+.disc{aspect-ratio:1;max-width:100%;border-radius:50%;background:var(--rose);display:grid;place-items:center;position:relative;width:min(100%,380px);justify-self:center}
+.disc::after{content:"";position:absolute;inset:-14px;border:1px solid var(--rose);border-radius:50%;opacity:.6}
+.disc div{text-align:center;color:var(--on-rose);padding:24px}
+.disc b{display:block;font:400 clamp(34px,6vw,54px)/1.05 var(--script)}
+.disc i{display:block;font:300 12px/1.4 var(--sans);letter-spacing:.3em;text-transform:uppercase;font-style:normal;margin-top:10px}
+
+section{padding-block:56px;border-top:1px solid var(--line)}
+h2{margin:0 0 8px;font:400 clamp(36px,6vw,52px)/1.1 var(--script);color:var(--rose-deep)}
+.lead{color:var(--muted);margin:0 0 32px;max-width:54ch}
+.panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:30px;min-width:0}
+.panel.dark{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.panel h3{margin:0 0 4px;font:400 13px/1.4 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--rose-deep)}
+.panel.dark h3{color:var(--rose)}
+.panel .t{font:400 34px/1.15 var(--script);margin:0 0 14px}
+.panel ul{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.panel li{padding-left:18px;position:relative}
+.panel li::before{content:"";position:absolute;left:0;top:.72em;width:7px;height:7px;border-radius:50%;background:var(--rose)}
+
+.visit{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:28px}
+.visit dt{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.visit dd{margin:0;overflow-wrap:anywhere}
+.todo{display:inline-block;background:var(--line);padding:2px 10px;border-radius:999px;font-size:14px;color:var(--muted)}
+.insta{margin-top:36px;padding:34px;border-radius:6px;background:var(--rose);color:var(--on-rose);display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;justify-content:space-between}
+.insta b{font:400 34px/1.1 var(--script);display:block}
+.insta .btn{border-color:var(--on-rose);color:var(--on-rose)}
+.insta .btn:hover{background:var(--on-rose);color:var(--rose);border-color:var(--on-rose)}
+footer{padding-block:32px 48px;text-align:center;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line)}
+
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding-block:32px 48px}.disc{order:-1;width:min(70%,300px)}nav{display:none}}
+@media (prefers-reduced-motion:no-preference){.disc{animation:fl 7s ease-in-out infinite}@keyframes fl{50%{transform:translateY(-8px)}}}
+</style>
+</head>
+<body>
+
+
+<header class="wrap">
+  <div class="top">
+    <a class="brand" href="#inicio"><div class="mark">M</div><span>Studio &amp; Modas<br>Maria Isabel</span></a>
+    <nav><a href="#o-que-fazemos">O que fazemos</a><a href="#visite">Visite</a></nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="wrap hero">
+    <div>
+      <h1><small>Studio &amp; Modas</small>Maria Isabel</h1>
+      <p>Beleza e moda no mesmo lugar. Cuidamos do seu visual do cabelo ao look, com atendimento próximo e capricho em cada detalhe.</p>
+      <div class="btns">
+        <a class="btn fill" href="https://www.instagram.com/studiobeleza.modasmariaisabel/" target="_blank" rel="noopener">Ver no Instagram</a>
+        <a class="btn" href="#visite">Como chegar</a>
+      </div>
+    </div>
+    <div class="disc"><div><b>Studio &amp; Modas<br>Maria Isabel</b><i>Beleza · Moda · Estilo</i></div></div>
+  </div>
+
+  <section id="o-que-fazemos"><div class="wrap">
+    <h2>O que fazemos</h2>
+    <p class="lead">Dois universos, um só endereço. Confirme a lista completa de serviços e peças com a Maria Isabel.</p>
+    <div class="panels">
+      <article class="panel">
+        <h3>Studio</h3><p class="t">Beleza</p>
+        <ul><li>Cabelo: corte, coloração e tratamentos</li><li>Unhas</li><li>Sobrancelhas e estética</li><li>Penteados para ocasiões especiais</li></ul>
+      </article>
+      <article class="panel dark">
+        <h3>Modas</h3><p class="t">Moda</p>
+        <ul><li>Roupas femininas</li><li>Peças para o dia a dia e para festas</li><li>Acessórios</li><li>Novidades toda semana no Instagram</li></ul>
+      </article>
+    </div>
+  </div></section>
+
+  <section id="visite"><div class="wrap">
+    <h2>Venha nos visitar</h2>
+    <p class="lead">Agende seu horário ou passe para conhecer as novidades.</p>
+    <dl class="visit">
+      <div><dt>Endereço</dt><dd><span class="todo">incluir endereço do Google</span></dd></div>
+      <div><dt>WhatsApp</dt><dd><span class="todo">incluir número</span></dd></div>
+      <div><dt>Horário</dt><dd><span class="todo">incluir horário de funcionamento</span></dd></div>
+    </dl>
+    <div class="insta">
+      <div><b>Acompanhe no Instagram</b>@studiobeleza.modasmariaisabel</div>
+      <a class="btn" href="https://www.instagram.com/studiobeleza.modasmariaisabel/" target="_blank" rel="noopener">Abrir perfil</a>
+    </div>
+  </div></section>
+</main>
+
+<footer><div class="wrap">Studio &amp; Modas Maria Isabel</div></footer>
+
+</body>
+</html>
