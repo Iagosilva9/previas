@@ -72,6 +72,11 @@ header.solid{background:rgba(9,12,20,.92);backdrop-filter:blur(10px);box-shadow:
 .gal img{width:100%;aspect-ratio:3/4;object-fit:cover}
 .gal figcaption{padding:12px 16px;font-size:.85rem;color:var(--muted)}
 .ig{margin-top:32px}
+.reels{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr));gap:16px}
+.reel{position:relative;aspect-ratio:9/16;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--card);padding:0;cursor:pointer;color:#fff;font:inherit;text-align:left}
+.reel img,.reel iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+.reel b{position:absolute;left:0;right:0;bottom:0;padding:40px 14px 14px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-weight:600;font-size:.9rem}
+.play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:rgba(59,107,255,.9);display:grid;place-items:center;font-size:1.1rem;padding-left:4px}
 details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 22px;margin-bottom:12px}
 summary{cursor:pointer;font-weight:600;list-style:none}summary::-webkit-details-marker{display:none}
 summary::after{content:"+";float:right;color:var(--ac2)}details[open] summary::after{content:"−"}
@@ -96,7 +101,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px}
 <header id="top"><div class="wrap nav">
   <a class="brand" href="#top"><span class="mono">MR</span><span><b>MR Estética</b><small>Automotiva</small></span></a>
   <button class="burger" aria-label="Abrir menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-  <nav class="menu" id="menu"><a href="#sobre">Sobre</a><a href="#servicos">Serviços</a><a href="#orcamento">Orçamento</a><a href="#galeria">Galeria</a><a href="#faq">Dúvidas</a><a href="#local">Localização</a>
+  <nav class="menu" id="menu"><a href="#sobre">Sobre</a><a href="#servicos">Serviços</a><a href="#orcamento">Orçamento</a><a href="#trabalhos">Trabalhos</a><a href="#faq">Dúvidas</a><a href="#local">Localização</a>
   <a class="btn btn-ac" data-wa="Olá MR, gostaria de agendar um serviço." href="#">WhatsApp</a></nav>
 </div></header>
 
@@ -152,6 +157,18 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px}
   </form>
 </div></section>
 
+<section id="trabalhos"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Nosso trabalho</span><h2>Resultados direto do Instagram</h2><p>Toque no vídeo para assistir. Os vídeos são os reels da MR no Instagram.</p></div>
+  <div class="reels">
+    <button class="reel" data-id="De5ITgbR6V6"><img src="img/ig-bmw-m2.jpg" alt="BMW M2 com acabamento brilhante na MR" loading="lazy" width="540" height="960"><span class="play" aria-hidden="true">▶</span><b>BMW M2</b></button>
+    <button class="reel" data-id="DezqfNmBl5W"><img src="img/ig-polimento-m2.jpg" alt="BMW M2 após polimento localizado com selante" loading="lazy" width="540" height="960"><span class="play" aria-hidden="true">▶</span><b>Polimento localizado e selante</b></button>
+    <button class="reel" data-id="DevL5Vmx8un"><img src="img/ig-gli.jpg" alt="Carro vermelho GLI com brilho de zero" loading="lazy" width="540" height="960"><span class="play" aria-hidden="true">▶</span><b>GLI com brilho de zero</b></button>
+    <button class="reel" data-id="De0SdZXRH3F"><img src="img/ig-motos.jpg" alt="Duas motos tratadas na MR" loading="lazy" width="540" height="960"><span class="play" aria-hidden="true">▶</span><b>Tratamento para motos</b></button>
+    <button class="reel" data-id="DesMJ3UBHqP"><img src="img/ig-fusion.jpg" alt="Ford Fusion cinza após cuidado completo" loading="lazy" width="540" height="960"><span class="play" aria-hidden="true">▶</span><b>Fusion com super cuidado</b></button>
+    <button class="reel" data-id="DevMDiexkqU"><img src="img/ig-sentra.jpg" alt="Nissan Sentra branco finalizado" loading="lazy" width="540" height="960"><span class="play" aria-hidden="true">▶</span><b>Sentra finalizado</b></button>
+  </div>
+</div></section>
+
 <section id="galeria" class="wa-flow"><div class="wrap">
   <div class="sec-head"><span class="eyebrow">O espaço</span><h2>Estrutura pensada para o seu carro</h2></div>
   <div class="gal">
@@ -194,6 +211,9 @@ document.getElementById('f').addEventListener('submit',function(e){e.preventDefa
  var m=document.getElementById('mod').value.trim();
  var t='Olá MR, gostaria de um orçamento: '+document.getElementById('srv').value+' ('+document.getElementById('vei').value.toLowerCase()+(m?' '+m:'')+').';
  window.open(wa(t),'_blank','noopener')});
+document.querySelectorAll('.reel').forEach(function(r){r.addEventListener('click',function(){
+ var f=document.createElement('iframe');f.src='https://www.instagram.com/reel/'+r.dataset.id+'/embed';f.title='Vídeo da MR no Instagram';f.allow='autoplay; encrypted-media; fullscreen';f.allowFullscreen=true;
+ r.replaceChildren(f);r.style.cursor='default'},{once:true})});
 var h=document.querySelector('header'),mn=document.getElementById('menu'),b=document.querySelector('.burger');
 function s(){h.classList.toggle('solid',scrollY>40)}s();addEventListener('scroll',s,{passive:true});
 b.addEventListener('click',function(){var o=mn.classList.toggle('open');b.setAttribute('aria-expanded',o)});
