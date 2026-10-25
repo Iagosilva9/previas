@@ -84,7 +84,7 @@ details p{margin-top:10px;color:var(--muted)}
 .loc-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:36px;align-items:stretch}
 .loc-info{display:grid;gap:18px;align-content:start}.loc-info p{color:var(--muted)}.loc-info b{display:block;color:var(--soft);font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
 .map{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);min-height:360px}.map iframe{width:100%;height:100%;min-height:360px;border:0;filter:grayscale(.3) invert(.92) hue-rotate(180deg)}
-footer{border-top:1px solid var(--line);padding:36px 0 96px;color:var(--muted);font-size:.85rem}
+footer{border-top:1px solid var(--line);padding:36px 0 110px;color:var(--muted);font-size:.85rem}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px}
 .fab{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));z-index:60;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.5)}
 .fab svg{width:30px;height:30px;fill:#fff}
@@ -94,6 +94,44 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px}
  .hero-grid,.about-grid,.loc-grid{grid-template-columns:1fr}.hero{padding-top:110px}section{padding:64px 0}
 }
 @media(prefers-reduced-motion:reduce){.marquee div{animation:none}html{scroll-behavior:auto}}
+
+/* v2 impacto */
+.hero{padding:120px 0 72px;background:radial-gradient(900px 560px at 85% 30%,rgba(59,107,255,.30),transparent 70%),radial-gradient(500px 300px at 0% 100%,rgba(225,29,46,.16),transparent 70%),var(--bg)}
+.hero::before{content:"";position:absolute;inset:0;opacity:.07;pointer-events:none;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='97'%3E%3Cpath d='M28 2l26 15v30L28 62 2 47V17zM28 62v35' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E");-webkit-mask-image:linear-gradient(180deg,#000,transparent 80%);mask-image:linear-gradient(180deg,#000,transparent 80%)}
+.hero .wrap{position:relative}
+.hero h1{font-size:clamp(3rem,8.4vw,6.2rem);text-transform:uppercase;line-height:.98;letter-spacing:0}
+.hero h1 em{display:block;background:linear-gradient(90deg,var(--ac),#8fb0ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:999px;padding:6px 14px;font-size:.8rem;color:var(--soft);margin-bottom:6px}
+.pill i{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.22)}
+.mosaic{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;align-items:start}
+.mosaic figure{margin:0;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 60px -20px rgba(0,0,0,.8);position:relative}
+.mosaic figure:nth-child(1){margin-top:48px}.mosaic figure:nth-child(3){margin-top:96px}
+.mosaic img{aspect-ratio:9/16;width:100%;object-fit:cover}
+.mosaic figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 10px 10px;font-size:.72rem;font-weight:600;background:linear-gradient(transparent,rgba(0,0,0,.85))}
+.stats{background:#1a3aa0;border-block:1px solid rgba(255,255,255,.12)}
+.stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding-block:28px;text-align:center}
+.stats strong{display:block;font-family:Oswald,sans-serif;font-size:clamp(1.5rem,4vw,2.6rem);line-height:1.1}
+.stats span{font-size:.78rem;color:#cfd9ff;letter-spacing:.06em;text-transform:uppercase}
+.why{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:18px}
+.ico{width:50px;height:50px;border-radius:14px;background:linear-gradient(135deg,#1a3aa0,var(--ac));display:grid;place-items:center;margin-bottom:16px}
+.ico svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:18px;counter-reset:s}
+.step{position:relative;padding:28px 22px;border:1px solid var(--line);border-radius:var(--r);background:var(--card);counter-increment:s}
+.step::before{content:counter(s);font-family:Oswald,sans-serif;font-size:3rem;line-height:1;color:var(--red);display:block;margin-bottom:10px}
+.step h3{font-size:1.2rem;margin-bottom:6px}.step p{color:var(--muted);font-size:.92rem}
+.cta-final{text-align:center;background:radial-gradient(700px 360px at 50% 0%,rgba(59,107,255,.35),transparent 70%),var(--bg2);border-block:1px solid var(--line)}
+.cta-final h2{font-size:clamp(2.2rem,6vw,4rem);text-transform:uppercase;max-width:15ch;margin:14px auto 18px}
+.cta-final p{color:var(--soft);max-width:48ch;margin:0 auto 28px}
+.cta-final .ctas{justify-content:center}
+.btn-lg{padding:18px 34px;font-size:1.05rem}
+.bar{display:none}
+@media(max-width:860px){
+ .stats .wrap{grid-template-columns:1fr 1fr}
+ .mosaic figure:nth-child(n){margin-top:0}.mosaic{gap:8px}.mosaic figcaption{font-size:.62rem;padding:18px 6px 6px}
+ .fab{display:none}
+ .bar{display:flex;position:fixed;inset:auto 0 0;z-index:60;gap:10px;padding:10px max(16px,env(safe-area-inset-right,0px)) max(10px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));background:rgba(9,12,20,.96);border-top:1px solid var(--line)}
+ .bar .btn{flex:1;justify-content:center;padding:13px 10px;font-size:.9rem}
+}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"AutoDetailing","name":"MR Estética Automotiva","telephone":"+55 11 98593-3245","image":"https://iagosilva9.github.io/previas/mr-estetica-automotiva/img/og.jpg","address":{"@type":"PostalAddress","streetAddress":"Rodovia Armando Salles, 99D - Olaria","addressLocality":"Itapecerica da Serra","addressRegion":"SP","addressCountry":"BR"},"sameAs":["https://www.instagram.com/mr_automotiva/"]}</script>
 </head>
@@ -101,28 +139,49 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px}
 <header id="top"><div class="wrap nav">
   <a class="brand" href="#top"><span class="mono">MR</span><span><b>MR Estética</b><small>Automotiva</small></span></a>
   <button class="burger" aria-label="Abrir menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-  <nav class="menu" id="menu"><a href="#sobre">Sobre</a><a href="#servicos">Serviços</a><a href="#orcamento">Orçamento</a><a href="#trabalhos">Trabalhos</a><a href="#faq">Dúvidas</a><a href="#local">Localização</a>
+  <nav class="menu" id="menu"><a href="#diferenciais">Diferenciais</a><a href="#servicos">Serviços</a><a href="#orcamento">Orçamento</a><a href="#trabalhos">Trabalhos</a><a href="#faq">Dúvidas</a><a href="#local">Localização</a>
   <a class="btn btn-ac" data-wa="Olá MR, gostaria de agendar um serviço." href="#">WhatsApp</a></nav>
 </div></header>
 
 <main>
 <div class="hero"><div class="wrap hero-grid">
   <div>
-    <span class="eyebrow">Itapecerica da Serra · SP</span>
-    <h1>Seu carro com cara de zero e <em>alma de máquina</em></h1>
-    <p class="lead">Polimento, vitrificação, PPF e lavagem detalhada. Cuidado de verdade para quem ama carro.</p>
+    <span class="pill"><i></i>Agendamentos abertos pelo WhatsApp</span><br>
+    <span class="eyebrow" style="margin-top:14px">Estética automotiva · Itapecerica da Serra</span>
+    <h1>Cara de zero. <em>Alma de máquina.</em></h1>
+    <p class="lead">Polimento, vitrificação, PPF e lavagem detalhada para carros e motos, em um espaço com iluminação própria para cada detalhe aparecer.</p>
     <div class="ctas">
-      <a class="btn btn-ac" data-wa="Olá MR, gostaria de fazer um orçamento para lavagem premium." href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>Lavagem premium</a>
-      <a class="btn btn-line" href="#servicos">Ver serviços</a>
+      <a class="btn btn-ac btn-lg" data-wa="Olá MR, gostaria de agendar um serviço e receber um orçamento." href="#"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>Agendar no WhatsApp</a>
+      <a class="btn btn-line btn-lg" href="#trabalhos">Ver resultados</a>
     </div>
-    <div class="badges"><div><strong>6 serviços</strong><span>polimento ao PPF</span></div><div><strong>1.300+ posts</strong><span>de trabalhos no Instagram</span></div><div><strong>Agendamento</strong><span>direto no WhatsApp</span></div></div>
   </div>
-  <img class="hero-car" src="img/carro.webp" alt="Carro escuro com acabamento polido" width="1200" height="568">
+  <div class="mosaic" aria-label="Trabalhos da MR Estética Automotiva">
+    <figure><img src="img/ig-gli.jpg" alt="Carro vermelho com brilho de zero" width="540" height="960"><figcaption>Brilho de zero</figcaption></figure>
+    <figure><img src="img/ig-polimento-m2.jpg" alt="BMW M2 após polimento localizado" width="540" height="960"><figcaption>Polimento e selante</figcaption></figure>
+    <figure><img src="img/ig-motos.jpg" alt="Motos tratadas na MR" width="540" height="960"><figcaption>Carros e motos</figcaption></figure>
+  </div>
+</div></div>
+
+<div class="stats"><div class="wrap">
+  <div><strong>6</strong><span>serviços técnicos</span></div>
+  <div><strong>1.300+</strong><span>publicações de trabalhos</span></div>
+  <div><strong>Carro e moto</strong><span>atendimento</span></div>
+  <div><strong>1.000+</strong><span>seguidores no Instagram</span></div>
 </div></div>
 
 <div class="marquee" aria-hidden="true"><div>
 <span>POLIMENTO</span><span>VITRIFICAÇÃO</span><span>HIGIENIZAÇÃO</span><span>LAVAGEM DETALHADA</span><span>PPF</span><span>ENCERAMENTO TÉCNICO</span>
 <span>POLIMENTO</span><span>VITRIFICAÇÃO</span><span>HIGIENIZAÇÃO</span><span>LAVAGEM DETALHADA</span><span>PPF</span><span>ENCERAMENTO TÉCNICO</span></div></div>
+
+<section id="diferenciais"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Por que a MR</span><h2>Acabamento que se vê na primeira olhada</h2><p>Cuidado de verdade para quem ama carro. Aqui o veículo recebe o tempo e a técnica que o serviço pede.</p></div>
+  <div class="why">
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 4.6v9.2L12 21l-8-4.2V7.6z"/><path d="M12 3v18M4 7.6l16 9.2"/></svg></div><h3>Iluminação profissional</h3><p>Teto de LED em colmeia que revela riscos e marcas, para o polimento não deixar nada passar.</p></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Proteção da pintura</h3><p>Vitrificação, selante e PPF para proteger a pintura e manter o brilho por mais tempo.</p></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="6" cy="17" r="3"/><circle cx="18" cy="17" r="3"/><path d="M6 17l3-7h5l4 7M9 10l-1-3h3"/></svg></div><h3>Carros e motos</h3><p>Tratamento completo também para motos, com o mesmo padrão MR.</p></div>
+    <div class="card"><div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></div><h3>Agendamento simples</h3><p>Você escolhe o serviço, chama no WhatsApp e reserva o seu horário.</p></div>
+  </div>
+</div></section>
 
 <section id="sobre" class="about"><div class="wrap about-grid">
   <div class="about-img"><img src="img/dono.webp" alt="Profissional da MR Estética Automotiva segurando uma politriz" loading="lazy" width="533" height="800"></div>
@@ -138,12 +197,22 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px}
 <section id="servicos" class="wa-flow"><div class="wrap">
   <div class="sec-head"><span class="eyebrow">Serviços</span><h2>O que fazemos pelo seu carro</h2><p>Clique no serviço e peça o orçamento direto no WhatsApp.</p></div>
   <div class="grid-s">
-    <a class="card" data-wa="Olá MR, gostaria de um orçamento de polimento." href="#"><div class="ic">01</div><h3>Polimento</h3><p>Correção de marcas e brilho profundo na pintura.</p></a>
-    <a class="card" data-wa="Olá MR, gostaria de um orçamento de vitrificação." href="#"><div class="ic">02</div><h3>Vitrificação</h3><p>Proteção da pintura com acabamento brilhante.</p></a>
-    <a class="card" data-wa="Olá MR, gostaria de um orçamento de higienização." href="#"><div class="ic">03</div><h3>Higienização</h3><p>Limpeza interna para o carro ficar com cara de novo por dentro.</p></a>
-    <a class="card" data-wa="Olá MR, gostaria de um orçamento para lavagem detalhada." href="#"><div class="ic">04</div><h3>Lavagem detalhada</h3><p>Lavagem premium ou simples, com atenção a cada detalhe.</p></a>
-    <a class="card" data-wa="Olá MR, gostaria de um orçamento de PPF." href="#"><div class="ic">05</div><h3>PPF</h3><p>Película de proteção da pintura contra riscos e pedras.</p></a>
-    <a class="card" data-wa="Olá MR, gostaria de um orçamento de enceramento técnico." href="#"><div class="ic">06</div><h3>Enceramento técnico</h3><p>Brilho e proteção com aplicação técnica.</p></a>
+    <a class="card" data-wa="Olá MR, gostaria de um orçamento de polimento." href="#"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4 18l6-6M10 12l4 4 6-8-6-2z"/></svg></div><h3>Polimento</h3><p>Correção de marcas e brilho profundo na pintura.</p></a>
+    <a class="card" data-wa="Olá MR, gostaria de um orçamento de vitrificação." href="#"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6z"/></svg></div><h3>Vitrificação</h3><p>Proteção da pintura com acabamento brilhante.</p></a>
+    <a class="card" data-wa="Olá MR, gostaria de um orçamento de higienização." href="#"><div class="ico"><svg viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg></div><h3>Higienização</h3><p>Limpeza interna para o carro ficar com cara de novo por dentro.</p></a>
+    <a class="card" data-wa="Olá MR, gostaria de um orçamento para lavagem detalhada." href="#"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3c3 4 5 6.5 5 9.5a5 5 0 0 1-10 0C7 9.5 9 7 12 3z"/></svg></div><h3>Lavagem detalhada</h3><p>Lavagem premium ou simples, com atenção a cada detalhe.</p></a>
+    <a class="card" data-wa="Olá MR, gostaria de um orçamento de PPF." href="#"><div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M4 12h16M12 4v16"/></svg></div><h3>PPF</h3><p>Película de proteção da pintura contra riscos e pedras.</p></a>
+    <a class="card" data-wa="Olá MR, gostaria de um orçamento de enceramento técnico." href="#"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></div><h3>Enceramento técnico</h3><p>Brilho e proteção com aplicação técnica.</p></a>
+  </div>
+</div></section>
+
+<section id="como"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Como funciona</span><h2>Do primeiro contato à entrega</h2></div>
+  <div class="steps">
+    <div class="step"><h3>Chame no WhatsApp</h3><p>Diga o serviço e o modelo do veículo. A mensagem já vai pronta.</p></div>
+    <div class="step"><h3>Receba o orçamento</h3><p>A MR avalia o veículo e informa valor e prazo do serviço.</p></div>
+    <div class="step"><h3>Agende o horário</h3><p>Escolha o melhor dia para levar o carro ou a moto até a oficina.</p></div>
+    <div class="step"><h3>Retire com cara de zero</h3><p>Entrega com o acabamento revisado, pronto para sair rodando.</p></div>
   </div>
 </div></section>
 
@@ -197,10 +266,17 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px}
   </div>
   <div class="map"><iframe title="Mapa da MR Estética Automotiva" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Rodovia+Armando+Salles+99D+Olaria+Itapecerica+da+Serra+SP&output=embed"></iframe></div>
 </div></section>
+<section class="cta-final"><div class="wrap">
+  <span class="eyebrow">Agende agora</span>
+  <h2>Seu carro merece esse brilho</h2>
+  <p>Fale com a MR, conte qual é o veículo e peça o seu orçamento. A resposta vem pelo WhatsApp.</p>
+  <div class="ctas"><a class="btn btn-ac btn-lg" data-wa="Olá MR, gostaria de agendar um serviço e receber um orçamento." href="#">Agendar no WhatsApp</a><a class="btn btn-line btn-lg" href="https://www.instagram.com/mr_automotiva/" target="_blank" rel="noopener">Ver Instagram</a></div>
+</div></section>
 </main>
 
 <footer><div class="wrap"><span>© MR Estética Automotiva · Itapecerica da Serra - SP</span><span>Prévia criada por Rezende Tecnologia</span></div></footer>
 
+<div class="bar"><a class="btn btn-ac" data-wa="Olá MR, gostaria de agendar um serviço." href="#">WhatsApp</a><a class="btn btn-line" href="#trabalhos">Resultados</a></div>
 <a class="fab" data-wa="Olá MR, gostaria de agendar um serviço." href="#" aria-label="Falar no WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.2 14c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.2-4.600-4-4.700-4.200-.1-.2-1.100-1.500-1.100-2.800s.7-2 1-2.200c.2-.3.500-.3.700-.3h.5c.2 0 .4 0 .6.500l.8 2c.1.2.1.3 0 .5l-.3.400-.4.400c-.1.100-.3.300-.1.600.2.300.8 1.300 1.700 2.100 1.100 1 2.100 1.300 2.400 1.400.3.100.5.100.7-.1l.9-1.100c.2-.3.400-.2.700-.1l1.900.9c.3.100.5.200.5.300.1.200.1.800-.1 1.400z"/></svg></a>
 
 <script>
