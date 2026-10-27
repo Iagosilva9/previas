@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>A Melhor Tapioca da Região | Tapiocaria no Jd. Santa Tereza – Embu das Artes</title>
-<meta name="description" content="A Melhor Tapioca da Região: mais de 130 tapiocas doces e salgadas feitas na hora, sucos naturais e bolo gelado de tapioca. Loja e delivery no Jd. Santa Tereza, Embu das Artes, até 23h30.">
+<title>A Melhor Tapioca da Região | 3 lojas em Embu das Artes</title>
+<meta name="description" content="A Melhor Tapioca da Região: mais de 130 tapiocas doces e salgadas feitas na hora, sucos naturais e bolo gelado de tapioca. 3 lojas em Embu das Artes (Jd. Santa Tereza, Vila Olinda e Santo Eduardo), com delivery próprio, iFood e 99Food até 23h30.">
 <meta property="og:title" content="A Melhor Tapioca da Região – Embu das Artes">
 <meta property="og:description" content="Tapiocas doces e salgadas feitas na hora. Loja e delivery até 23h30.">
 <meta property="og:image" content="img/hero.jpg">
@@ -141,6 +141,36 @@ footer a{text-decoration:none}
 footer a:hover{color:#fff}
 footer .copy{grid-column:1/-1;border-top:1px solid #ffffff1a;padding-top:20px;text-align:center;font-size:.82rem}
 @media(max-width:760px){footer .wrap{grid-template-columns:1fr}}
+/* escolha de loja */
+.escolha{position:fixed;inset:0;z-index:50;background:#1a0b0cf2;backdrop-filter:blur(6px);display:none;overflow-y:auto;padding:28px 16px}
+.escolha.aberta{display:block}
+.escolha .caixa{max-width:980px;margin:4vh auto 0;text-align:center;color:#fff}
+.escolha .caixa>img{width:96px;height:96px;border-radius:50%;border:3px solid #fff;margin:0 auto 14px}
+.escolha h2{font-size:clamp(1.8rem,5vw,2.6rem)}
+.escolha .caixa>p{opacity:.85;margin:6px 0 26px}
+.lojas{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;text-align:left}
+.loja{background:#fff;color:var(--txt);border-radius:18px;padding:22px;border:3px solid transparent;cursor:pointer;font:inherit;text-align:left;display:flex;flex-direction:column;gap:6px;transition:transform .15s,border-color .15s}
+.loja:hover,.loja:focus-visible{transform:translateY(-3px);border-color:var(--amarelo);outline:none}
+.loja .num{font-family:Oswald;color:var(--verm);font-size:.85rem;letter-spacing:.12em;text-transform:uppercase}
+.loja b{font-family:Oswald;font-size:1.5rem;text-transform:uppercase;color:var(--escuro);line-height:1.1}
+.loja span{color:var(--cinza);font-size:.92rem}
+.loja .ir{margin-top:8px;font-weight:700;color:var(--verm);font-size:.92rem}
+.escolha .fechar{margin-top:22px;background:none;border:0;color:#fff;opacity:.75;text-decoration:underline;cursor:pointer;font:inherit}
+@media(max-width:760px){.lojas{grid-template-columns:1fr}.escolha .caixa{margin-top:0}}
+.trocar{display:inline-flex;align-items:center;gap:6px;background:#ffffff22;border:1px solid #ffffff55;color:#fff;border-radius:999px;padding:7px 14px;font:inherit;font-size:.85rem;font-weight:600;cursor:pointer;white-space:nowrap}
+.trocar:hover{background:#ffffff33}
+@media(max-width:480px){.trocar{padding:6px 10px;font-size:.78rem}.logo small{display:none}}
+/* botões de pedido */
+.btn.ifood{background:#ea1d2c;color:#fff}
+.btn.n99{background:#ffdd00;color:#1a1a1a}
+.btn.wa{background:#25d366;color:#fff}
+.pedir{display:flex;flex-wrap:wrap;gap:12px}
+.lojas-lista{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.lojas-lista div{background:#fff;border:1px solid var(--borda);border-radius:16px;padding:16px 18px;font-size:.92rem}
+.lojas-lista div.atual{border:2px solid var(--verm)}
+.lojas-lista b{display:block;font-family:Oswald;text-transform:uppercase;color:var(--escuro);font-size:1.05rem}
+.lojas-lista button{margin-top:8px;background:none;border:0;color:var(--verm);font:inherit;font-weight:700;cursor:pointer;padding:0}
+@media(max-width:760px){.lojas-lista{grid-template-columns:1fr}}
 .zap{position:fixed;right:18px;bottom:18px;z-index:30;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 8px 24px #0004;transition:transform .15s}
 .zap:hover{transform:scale(1.07)}
 .zap svg{width:32px;height:32px;fill:#fff}
@@ -152,39 +182,40 @@ footer .copy{grid-column:1/-1;border-top:1px solid #ffffff1a;padding-top:20px;te
   <a class="logo" href="#topo"><img src="img/logo.jpg" alt="Logo A Melhor Tapioca da Região"><span><b>A Melhor Tapioca</b><small>da Região · desde 2017</small></span></a>
   <nav>
     <a href="#cardapio">Cardápio</a>
-    <a href="#sobre">Sobre</a>
+    <a href="#sobre">Nossa história</a>
     <a href="#bolo">Bolo gelado</a>
-    <a href="#visite">Onde estamos</a>
-    <a class="btn" href="https://amelhortapioca.mistercheff.com.br" target="_blank" rel="noopener">Pedir agora</a>
+    <a href="#visite">Lojas</a>
+    <button class="trocar" type="button" data-abrir-escolha aria-label="Trocar de loja"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z"/></svg><span data-t="curto">Escolher loja</span> ▾</button>
   </nav>
 </div></header>
 
 <div class="hero" id="topo"><div class="wrap">
   <div class="tag"><i id="status-dot"></i><span id="status-txt">Seg a Sáb · 9h às 23h30</span></div>
   <h1>Tapioca feita na hora, <span>do jeito que você gosta</span></h1>
-  <p>Mais de 130 sabores doces e salgados, com ingredientes selecionados, sabor, tradição e carinho. Coma na loja ou peça no delivery, no Jardim Santa Tereza, em Embu das Artes.</p>
-  <div class="ctas">
-    <a class="btn" href="https://amelhortapioca.mistercheff.com.br" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M7 4h-2l-1 2h2l3.6 7.6-1.4 2.4A2 2 0 0 0 10 19h10v-2H10l1.1-2h7.4a2 2 0 0 0 1.8-1l3.6-6.5A1 1 0 0 0 23 6H8.2L7 4Zm3 16a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"/></svg>Fazer pedido no delivery</a>
-    <a class="btn sec" href="#cardapio">Ver o cardápio</a>
+  <p>Mais de 130 sabores doces e salgados, feitos com produtos originais e bem servidos. Você está pedindo na <b data-t="nome">loja mais perto de você</b>: <span data-t="endereco">escolha uma das nossas 3 lojas em Embu das Artes</span>.</p>
+  <div class="pedir">
+    <a class="btn ifood" data-l="ifood" href="#" target="_blank" rel="noopener">Pedir no iFood</a>
+    <a class="btn n99" data-l="n99" href="#" target="_blank" rel="noopener">Pedir no 99Food</a>
+    <a class="btn wa" data-l="wa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Z"/></svg>Delivery próprio</a>
   </div>
   <div class="selos">
+    <div><b>3 lojas</b>em Embu das Artes</div>
+    <div><b>Desde 2017</b>empresa familiar</div>
+    <div><b>Até 23h30</b>loja, retirada e delivery</div>
     <div><b>130+</b>sabores no cardápio</div>
-    <div><b>Desde 2017</b>servindo a região</div>
-    <div><b>Até 23h30</b>loja e delivery</div>
-    <div><b>5,8 mil</b>seguidores no Instagram</div>
   </div>
 </div></div>
 
 <section class="creme"><div class="wrap">
-  <div class="titulo"><small>Os queridinhos</small><h2>Escolha o seu favorito</h2><p>Da tapioca de manteiga simples à X-Tudo, tem opção para o café da manhã, o lanche da tarde e a fome da noite.</p></div>
+  <div class="titulo"><small>Os mais pedidos</small><h2>Os 3 favoritos da casa</h2><p>Os sabores que mais saem nas nossas 3 lojas. Comece por eles e depois explore o cardápio inteiro.</p></div>
   <div class="dest">
-    <div class="card"><img src="img/doce.jpg" alt="Tapioca doce de morango com Nutella e leite condensado" loading="lazy"><div><h3>Tapiocas doces</h3><p>Morango com Nutella, banana com canela, coco com leite condensado, uva, amendoim… mais de 40 combinações.</p><div class="preco"><small>a partir de</small> R$ 13,99</div></div></div>
-    <div class="card"><img src="img/salgada.jpg" alt="Tapioca salgada com frango, brócolis e cheddar" loading="lazy"><div><h3>Tapiocas salgadas</h3><p>Frango, carne seca, calabresa, pernil, atum, camarão, peito de peru, com catupiry ou cheddar. São 85 opções.</p><div class="preco"><small>a partir de</small> R$ 11,99</div></div></div>
-    <div class="card"><img src="img/chapa.jpg" alt="Tapiocas especiais na chapa" loading="lazy"><div><h3>Especiais</h3><p>A Especial (frango, calabresa, bacon, catupiry) e a X-Tudo, com tudo que você tem direito. Para quem chega com fome.</p><div class="preco"><small>a partir de</small> R$ 25,99</div></div></div>
+    <div class="card"><img src="img/salgada.jpg" alt="Tapioca salgada de frango com queijo" loading="lazy"><div><h3>Nº 13 Salgada</h3><p>Frango, queijo, tomate e orégano. Simples, bem recheada e a mais pedida do cardápio salgado.</p><div class="preco">R$ 16,99</div></div></div>
+    <div class="card"><img src="img/chapa.jpg" alt="Tapioca salgada de carne seca com queijo na chapa" loading="lazy"><div><h3>Nº 23 Salgada</h3><p>Carne seca, queijo, tomate e orégano. O sabor nordestino que virou clássico da casa.</p><div class="preco">R$ 20,99</div></div></div>
+    <div class="card"><img src="img/doce.jpg" alt="Tapioca doce de morango com Nutella" loading="lazy"><div><h3>Nº 11 Doce</h3><p>Morango e Nutella. A sobremesa preferida de quem passa pela loja.</p><div class="preco">R$ 17,99</div></div></div>
   </div>
   <div class="combo">
-    <div><h3>Combo promocional</h3><p>1 Tapioca Especial + 1 Tapioca Nº 23 salgada (carne seca) + 1 Nº 11 doce (morango e Nutella) + 1 Coca-Cola 600 ml. Ideal para dividir.</p></div>
-    <div style="text-align:right"><div class="valor">R$ 69,99</div><a class="btn" style="margin-top:12px" href="https://amelhortapioca.mistercheff.com.br" target="_blank" rel="noopener">Quero o combo</a></div>
+    <div><h3>Combo promocional</h3><p>Os campeões juntos: 1 Tapioca Especial + 1 Nº 23 salgada + 1 Nº 11 doce + 1 Coca-Cola 600 ml. Ideal para dividir.</p></div>
+    <div style="text-align:right"><div class="valor">R$ 69,99</div><a class="btn" style="margin-top:12px" data-l="ifood" href="#" target="_blank" rel="noopener">Quero o combo</a></div>
   </div>
 </div></section>
 
@@ -200,21 +231,21 @@ footer .copy{grid-column:1/-1;border-top:1px solid #ffffff1a;padding-top:20px;te
   <input class="busca" id="busca" type="search" placeholder="Buscar ingrediente: frango, nutella, catupiry…" aria-label="Buscar no cardápio">
   <div class="lista" id="lista"></div>
   <p class="nota">Preços de referência do cardápio de delivery. Valores sujeitos a alteração.</p>
-  <div class="cta-centro"><a class="btn red" href="https://amelhortapioca.mistercheff.com.br" target="_blank" rel="noopener">Montar meu pedido no delivery</a></div>
+  <div class="cta-centro pedir" style="justify-content:center"><a class="btn ifood" data-l="ifood" href="#" target="_blank" rel="noopener">Pedir no iFood</a><a class="btn n99" data-l="n99" href="#" target="_blank" rel="noopener">Pedir no 99Food</a><a class="btn wa" data-l="wa" href="#" target="_blank" rel="noopener">Pedir pelo WhatsApp</a></div>
 </div></section>
 
 <section class="creme" id="sobre"><div class="wrap sobre">
   <img src="img/somos.jpg" alt="Tapioca recheada saindo da chapa" loading="lazy">
   <div>
-    <small>Quem somos</small>
-    <h2>Não é à toa que somos <span style="color:var(--verm)">a melhor</span> da região</h2>
-    <p>Desde 2017, A Melhor Tapioca da Região serve tapiocas doces e salgadas montadas na hora, na chapa, com recheio generoso e ingredientes selecionados.</p>
-    <p>A casa nasceu no Jardim Santa Tereza e cresceu com a vizinhança: hoje atendemos na loja e no delivery, de segunda a sábado até 23h30. Do café da manhã ao lanche da madrugada, sempre tem uma tapioca saindo quentinha.</p>
+    <small>Nossa história</small>
+    <h2>Da barraca na rua <span style="color:var(--verm)">às 3 lojas</span></h2>
+    <p>Somos uma empresa familiar. Tudo começou em 2017, com uma simples barraca na rua e o sonho de crescer oferecendo sempre o melhor para os nossos clientes.</p>
+    <p>Com muito trabalho e perseverança, fomos melhorando cada detalhe até chegar às nossas 3 lojas em Embu das Artes: Jardim Santa Tereza, Vila Olinda e Santo Eduardo. Seguimos aprendendo todos os dias, sem esquecer de onde viemos.</p>
     <div class="difs">
       <div><b>Feita na hora</b>Massa e recheio preparados no momento do pedido.</div>
-      <div><b>Recheio de verdade</b>Queijo derretido, frango, carne seca, frutas frescas.</div>
-      <div><b>Do seu jeito</b>Adicione qualquer ingrediente do cardápio.</div>
-      <div><b>Paga como quiser</b>Pix, cartões, VR e Ticket Restaurante.</div>
+      <div><b>Produtos originais</b>Ingredientes de qualidade, recheio bem servido.</div>
+      <div><b>Higiene e agilidade</b>Cuidado em cada detalhe, do preparo à entrega.</div>
+      <div><b>Empresa familiar</b>Uma família que trabalha unida, desde 2017.</div>
     </div>
   </div>
 </div></section>
@@ -225,7 +256,7 @@ footer .copy{grid-column:1/-1;border-top:1px solid #ffffff1a;padding-top:20px;te
       <small style="color:var(--verm);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:.8rem">Encomendas</small>
       <h2>Bolo gelado de tapioca</h2>
       <p>Cremoso, geladinho e com coco. Perfeito para aniversários, reuniões de família ou aquele domingo especial.</p>
-      <p><b>Encomende com 2 dias de antecedência.</b> Preencha ao lado e a mensagem já vai pronta para o nosso WhatsApp.</p>
+      <p><b>Encomende com 2 dias de antecedência.</b> Preencha ao lado e a mensagem vai pronta para o WhatsApp da <b data-t="nome">sua loja</b>.</p>
     </div>
     <form id="form-bolo">
       <div><label for="nome">Seu nome</label><input id="nome" required placeholder="Como podemos te chamar?"></div>
@@ -240,38 +271,47 @@ footer .copy{grid-column:1/-1;border-top:1px solid #ffffff1a;padding-top:20px;te
 </div></section>
 
 <section class="creme" style="padding-top:70px"><div class="wrap">
-  <div class="titulo"><small>@amelhortapioca_da_regiao1</small><h2>Direto da nossa chapa</h2></div>
+  <div class="titulo"><small data-t="ig">@amelhortapioca_da_regiao1</small><h2>Direto da nossa chapa</h2></div>
   <div class="gal">
     <img src="img/hero.jpg" alt="Tapiocas salgadas sendo preparadas na chapa" loading="lazy">
     <img src="img/morango.jpg" alt="Tapioca doce de morango e Nutella" loading="lazy">
     <img src="img/salgada.jpg" alt="Tapioca salgada com brócolis e cheddar" loading="lazy">
     <img src="img/doce.jpg" alt="Tapioca doce com frutas" loading="lazy">
   </div>
-  <div class="cta-centro"><a class="btn red" href="https://www.instagram.com/amelhortapioca_da_regiao1/" target="_blank" rel="noopener">Seguir no Instagram</a></div>
+  <div class="cta-centro"><a class="btn red" data-l="insta" href="https://www.instagram.com/amelhortapioca_da_regiao1/" target="_blank" rel="noopener">Seguir no Instagram</a></div>
 </div></section>
 
 <section id="visite"><div class="wrap">
-  <div class="titulo"><small>Onde estamos</small><h2>Vem comer com a gente</h2></div>
+  <div class="titulo"><small>Onde estamos</small><h2 data-t="nome">Vem comer com a gente</h2><p>Atendemos no local, para retirada e com delivery próprio.</p></div>
   <div class="visite">
     <div class="info">
-      <div><svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg><div><h4>Endereço</h4><p>Rua Cerqueira César, 711<br>Jardim Santa Tereza – Embu das Artes/SP</p></div></div>
+      <div><svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg><div><h4>Endereço</h4><p data-t="endereco">Rua Cerqueira César, 711 – Jardim Santa Tereza</p><span>Embu das Artes/SP</span></div></div>
       <div><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><h4>Horário</h4><div class="horas" id="horas"></div></div></div>
-      <div><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg><div><h4>Telefone / WhatsApp</h4><p><a href="https://wa.me/5511951586920">(11) 95158-6920</a></p></div></div>
+      <div><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg><div><h4>Telefone / WhatsApp</h4><p><a data-l="wa" data-t="fone" href="https://wa.me/5511951586920">(11) 95158-6920</a></p></div></div>
       <div><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg><div><h4>Pagamento</h4><div class="pag"><span>Pix</span><span>Dinheiro</span><span>Crédito</span><span>Débito</span><span>VR</span><span>Ticket</span><span>Verde Card</span></div></div></div>
-      <a class="btn red" href="https://www.google.com/maps/dir/?api=1&destination=Rua+Cerqueira+C%C3%A9sar%2C+711%2C+Jardim+Santa+Tereza%2C+Embu+das+Artes+-+SP" target="_blank" rel="noopener" style="justify-content:center">Como chegar</a>
+      <a class="btn red" data-l="rota" href="#" target="_blank" rel="noopener" style="justify-content:center">Como chegar</a>
     </div>
-    <div class="mapa"><iframe title="Mapa A Melhor Tapioca da Região" loading="lazy" src="https://maps.google.com/maps?q=Rua%20Cerqueira%20C%C3%A9sar%2C%20711%2C%20Jardim%20Santa%20Tereza%2C%20Embu%20das%20Artes%20-%20SP&z=16&output=embed"></iframe></div>
+    <div class="mapa"><iframe id="mapa" title="Mapa da loja" loading="lazy"></iframe></div>
   </div>
+  <div class="lojas-lista" id="lojas-lista"></div>
 </div></section>
 
 <footer><div class="wrap">
-  <div><h4>A Melhor Tapioca da Região</h4><p>Tapiocas doces e salgadas feitas na hora, desde 2017. Loja e delivery no Jardim Santa Tereza, Embu das Artes/SP.</p></div>
-  <div><h4>Contato</h4><p><a href="https://wa.me/5511951586920">(11) 95158-6920</a><br><a href="https://www.instagram.com/amelhortapioca_da_regiao1/" target="_blank" rel="noopener">Instagram</a><br><a href="https://amelhortapioca.mistercheff.com.br" target="_blank" rel="noopener">Delivery online</a></p></div>
-  <div><h4>Horário</h4><p>Seg a Sáb: 9h às 23h30<br>Domingo: fechado</p></div>
+  <div><h4>A Melhor Tapioca da Região</h4><p>Empresa familiar desde 2017. Tapiocas doces e salgadas feitas na hora, em 3 lojas em Embu das Artes/SP.</p></div>
+  <div><h4>Nossas lojas</h4><p id="rodape-lojas"></p></div>
+  <div><h4>Horário</h4><p>Todas as lojas<br>Seg a Sáb: 9h às 23h30<br>Domingos e feriados: fechado</p></div>
   <div class="copy">© <span id="ano"></span> A Melhor Tapioca da Região · Embu das Artes/SP</div>
 </div></footer>
 
-<a class="zap" href="https://wa.me/5511951586920?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20fazer%20um%20pedido." target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg></a>
+<div class="escolha" id="escolha" role="dialog" aria-modal="true" aria-labelledby="escolha-titulo"><div class="caixa">
+  <img src="img/logo.jpg" alt="">
+  <h2 id="escolha-titulo">Escolha a sua loja</h2>
+  <p>Cada loja tem o seu próprio delivery. Escolha a mais perto de você para ver os links de pedido certos.</p>
+  <div class="lojas" id="lojas-escolha"></div>
+  <button class="fechar" type="button" id="fechar-escolha">Só quero ver o cardápio</button>
+</div></div>
+
+<a class="zap" data-l="wa" href="https://wa.me/5511951586920" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.3 14.2c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.4c-.1.2-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3Z"/></svg></a>
 
 <script>
 // [nº, sabor, preço]
@@ -343,8 +383,53 @@ document.getElementById('form-bolo').onsubmit=e=>{
   const dt=data.value.split('-').reverse().join('/');
   let t=`Olá! Vim pelo site e gostaria de encomendar bolo gelado de tapioca.\n\nNome: ${nome.value}\nPara: ${dt}\nQuantidade: ${qtd.value}`;
   if(obs.value.trim())t+=`\nObs.: ${obs.value.trim()}`;
-  window.open('https://wa.me/5511951586920?text='+encodeURIComponent(t),'_blank');
+  if(!loja){abrirEscolha();return}
+  window.open('https://wa.me/'+loja.wa+'?text='+encodeURIComponent(t),'_blank');
 };
+
+// lojas: cada uma tem o seu WhatsApp, iFood, 99Food e Instagram
+const LOJAS={
+  tereza:{num:'Loja 1',nome:'Loja 1 – Jd. Santa Tereza',curto:'Santa Tereza',end:'Rua Cerqueira César, 711 – Jardim Santa Tereza',wa:'5511951586920',fone:'(11) 95158-6920',
+    ifood:'https://www.ifood.com.br/delivery/embu-das-artes-sp/a-melhor-tapioca-da-regiao---tereza-jardim-santa-tereza/dd59dbe6-2971-47c1-934a-a8a09a7af55a',n99:'https://oia.99app.com/dlp9/9SlfAA',ig:'amelhortapioca_da_regiao1'},
+  olinda:{num:'Loja 2',nome:'Loja 2 – Vila Olinda',curto:'Vila Olinda',end:'Rua Francisco Gizeudo Honório, 25 – Vila Olinda',wa:'5511953495000',fone:'(11) 95349-5000',
+    ifood:'https://www.ifood.com.br/delivery/embu-das-artes-sp/a-melhor-tapioca-da-regiao--vila-olinda-vila-olinda/11324fee-7ba0-492a-9c81-2cf7d37d279e',n99:'https://oia.99app.com/dlp9/ektW5u',ig:'amelhortapioca_da_regiao2'},
+  eduardo:{num:'Loja 3',nome:'Loja 3 – Santo Eduardo',curto:'Santo Eduardo',end:'Rua Central, 306 – Santo Eduardo',wa:'5511980745971',fone:'(11) 98074-5971',
+    ifood:'https://www.ifood.com.br/delivery/embu-das-artes-sp/a-melhor-tapioca-da-regiao-santo-eduardo-jardim-dom-jose/bf1aee2f-d8ef-406a-b94b-57e6f624fa40',n99:'https://oia.99app.com/dlp9/5qGrfg',ig:'amelhortapioca_da_regiao3'}
+};
+const msgPedido=encodeURIComponent('Olá! Vim pelo site e gostaria de fazer um pedido.');
+const local=l=>encodeURIComponent(l.end.replace(' – ',', ')+', Embu das Artes - SP');
+const links={
+  wa:l=>'https://wa.me/'+l.wa+'?text='+msgPedido,
+  ifood:l=>l.ifood, n99:l=>l.n99,
+  insta:l=>'https://www.instagram.com/'+l.ig+'/',
+  rota:l=>'https://www.google.com/maps/dir/?api=1&destination='+local(l)
+};
+const textos={nome:l=>l.nome,curto:l=>l.curto,endereco:l=>l.end,fone:l=>l.fone,ig:l=>'@'+l.ig};
+let loja=null;
+const escolha=document.getElementById('escolha');
+function abrirEscolha(){escolha.classList.add('aberta');document.body.style.overflow='hidden';escolha.querySelector('.loja').focus()}
+function fecharEscolha(){escolha.classList.remove('aberta');document.body.style.overflow=''}
+function usarLoja(id,salvar){
+  loja=LOJAS[id];if(!loja)return;
+  document.querySelectorAll('[data-l]').forEach(a=>a.href=links[a.dataset.l](loja));
+  document.querySelectorAll('[data-t]').forEach(e=>e.textContent=textos[e.dataset.t](loja));
+  document.getElementById('mapa').src='https://maps.google.com/maps?q='+local(loja)+'&z=16&output=embed';
+  document.getElementById('lojas-lista').innerHTML=Object.entries(LOJAS).map(([k,l])=>`<div class="${l===loja?'atual':''}"><b>${l.nome}</b>${l.end}<br>${l.fone}<br>${l===loja?'<span style="color:var(--verm);font-weight:700">Loja selecionada</span>':`<button type="button" data-loja="${k}">Pedir nesta loja →</button>`}</div>`).join('');
+  if(salvar){try{localStorage.setItem('loja',id)}catch(e){} history.replaceState(null,'','?loja='+id+location.hash)}
+  fecharEscolha();
+}
+document.getElementById('lojas-escolha').innerHTML=Object.entries(LOJAS).map(([k,l])=>`<button class="loja" type="button" data-loja="${k}"><span class="num">${l.num}</span><b>${l.curto}</b><span>${l.end}</span><span>${l.fone}</span><span class="ir">Pedir nesta loja →</span></button>`).join('');
+document.getElementById('rodape-lojas').innerHTML=Object.values(LOJAS).map(l=>`<a href="https://wa.me/${l.wa}">${l.curto}: ${l.fone}</a>`).join('<br>');
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-loja]');if(b){usarLoja(b.dataset.loja,true);return}
+  if(e.target.closest('[data-abrir-escolha]')){abrirEscolha();return}
+  if(!loja&&e.target.closest('a[data-l]')){e.preventDefault();abrirEscolha()}
+});
+document.getElementById('fechar-escolha').onclick=fecharEscolha;
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&escolha.classList.contains('aberta'))fecharEscolha()});
+let inicial=new URLSearchParams(location.search).get('loja');
+if(!LOJAS[inicial]){try{inicial=localStorage.getItem('loja')}catch(e){inicial=null}}
+if(LOJAS[inicial])usarLoja(inicial,false);else abrirEscolha();
 </script>
 </body>
 </html>
