@@ -215,7 +215,7 @@ footer .copy{grid-column:1/-1;border-top:1px solid #ffffff1a;padding-top:20px;te
   </div>
   <div class="combo">
     <div><h3>Combo promocional</h3><p>Os campeões juntos: 1 Tapioca Especial + 1 Nº 23 salgada + 1 Nº 11 doce + 1 Coca-Cola 600 ml. Ideal para dividir.</p></div>
-    <div style="text-align:right"><div class="valor">R$ 69,99</div><a class="btn" style="margin-top:12px" data-l="ifood" href="#" target="_blank" rel="noopener">Quero o combo</a></div>
+    <div style="text-align:right"><div class="valor">R$ 69,99</div><a class="btn" style="margin-top:12px" data-l="combo" href="#" target="_blank" rel="noopener">Quero o combo</a></div>
   </div>
 </div></section>
 
@@ -390,17 +390,20 @@ document.getElementById('form-bolo').onsubmit=e=>{
 // lojas: cada uma tem o seu WhatsApp, iFood, 99Food e Instagram
 const LOJAS={
   tereza:{num:'Loja 1',nome:'Loja 1 – Jd. Santa Tereza',curto:'Santa Tereza',end:'Rua Cerqueira César, 711 – Jardim Santa Tereza',wa:'5511951586920',fone:'(11) 95158-6920',
-    ifood:'https://www.ifood.com.br/delivery/embu-das-artes-sp/a-melhor-tapioca-da-regiao---tereza-jardim-santa-tereza/dd59dbe6-2971-47c1-934a-a8a09a7af55a',n99:'https://oia.99app.com/dlp9/9SlfAA',ig:'amelhortapioca_da_regiao1'},
+    ifood:'https://www.ifood.com.br/delivery/embu-das-artes-sp/a-melhor-tapioca-da-regiao---tereza-jardim-santa-tereza/dd59dbe6-2971-47c1-934a-a8a09a7af55a',n99:'https://oia.99app.com/dlp9/9SlfAA',ig:'amelhortapioca_da_regiao1',
+    combo:'https://amelhortapioca.mistercheff.com.br/categorias/155-_combo-promocional'},
   olinda:{num:'Loja 2',nome:'Loja 2 – Vila Olinda',curto:'Vila Olinda',end:'Rua Francisco Gizeudo Honório, 25 – Vila Olinda',wa:'5511953495000',fone:'(11) 95349-5000',
-    ifood:'https://www.ifood.com.br/delivery/embu-das-artes-sp/a-melhor-tapioca-da-regiao--vila-olinda-vila-olinda/11324fee-7ba0-492a-9c81-2cf7d37d279e',n99:'https://oia.99app.com/dlp9/ektW5u',ig:'amelhortapioca_da_regiao2'},
+    ifood:'https://www.ifood.com.br/delivery/embu-das-artes-sp/a-melhor-tapioca-da-regiao--vila-olinda-vila-olinda/11324fee-7ba0-492a-9c81-2cf7d37d279e',n99:'https://oia.99app.com/dlp9/ektW5u',ig:'amelhortapioca_da_regiao2',
+    combo:'https://amelhortapiocadaregiaovilaolinda.mistercheff.com.br/categorias/157-_combo-promocional'},
   eduardo:{num:'Loja 3',nome:'Loja 3 – Santo Eduardo',curto:'Santo Eduardo',end:'Rua Central, 306 – Santo Eduardo',wa:'5511980745971',fone:'(11) 98074-5971',
-    ifood:'https://www.ifood.com.br/delivery/embu-das-artes-sp/a-melhor-tapioca-da-regiao-santo-eduardo-jardim-dom-jose/bf1aee2f-d8ef-406a-b94b-57e6f624fa40',n99:'https://oia.99app.com/dlp9/5qGrfg',ig:'amelhortapioca_da_regiao3'}
+    ifood:'https://www.ifood.com.br/delivery/embu-das-artes-sp/a-melhor-tapioca-da-regiao-santo-eduardo-jardim-dom-jose/bf1aee2f-d8ef-406a-b94b-57e6f624fa40',n99:'https://oia.99app.com/dlp9/5qGrfg',ig:'amelhortapioca_da_regiao3',
+    combo:'https://amelhortapiocadaregiaosantoeduardo.mistercheff.com.br/categorias/154-_combo-promocional'}
 };
 const msgPedido=encodeURIComponent('Olá! Vim pelo site e gostaria de fazer um pedido.');
 const local=l=>encodeURIComponent(l.end.replace(' – ',', ')+', Embu das Artes - SP');
 const links={
   wa:l=>'https://wa.me/'+l.wa+'?text='+msgPedido,
-  ifood:l=>l.ifood, n99:l=>l.n99,
+  ifood:l=>l.ifood, n99:l=>l.n99, combo:l=>l.combo,
   insta:l=>'https://www.instagram.com/'+l.ig+'/',
   rota:l=>'https://www.google.com/maps/dir/?api=1&destination='+local(l)
 };
