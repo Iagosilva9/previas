@@ -164,6 +164,7 @@ footer .copy{grid-column:1/-1;border-top:1px solid #ffffff1a;padding-top:20px;te
 .btn.ifood{background:#ea1d2c;color:#fff}
 .btn.n99{background:#ffdd00;color:#1a1a1a}
 .btn.wa{background:#25d366;color:#fff}
+.btn.cardapio{background:var(--escuro);color:#fff;box-shadow:inset 0 0 0 2px #ffffff40}
 .pedir{display:flex;flex-wrap:wrap;gap:12px}
 .lojas-lista{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
 .lojas-lista div{background:#fff;border:1px solid var(--borda);border-radius:16px;padding:16px 18px;font-size:.92rem}
@@ -197,6 +198,7 @@ footer .copy{grid-column:1/-1;border-top:1px solid #ffffff1a;padding-top:20px;te
     <a class="btn ifood" data-l="ifood" href="#" target="_blank" rel="noopener">Pedir no iFood</a>
     <a class="btn n99" data-l="n99" href="#" target="_blank" rel="noopener">Pedir no 99Food</a>
     <a class="btn wa" data-l="wa" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Z"/></svg>Delivery próprio</a>
+    <a class="btn cardapio" data-l="cardapio" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M4 4h12a2 2 0 0 1 2 2v14H6a2 2 0 0 1-2-2V4Zm3 4h8v2H7V8Zm0 4h8v2H7v-2Zm13-6h1v15a1 1 0 0 1-1 1h-1V6h1Z"/></svg>Cardápio completo</a>
   </div>
   <div class="selos">
     <div><b>3 lojas</b>em Embu das Artes</div>
@@ -231,7 +233,7 @@ footer .copy{grid-column:1/-1;border-top:1px solid #ffffff1a;padding-top:20px;te
   <input class="busca" id="busca" type="search" placeholder="Buscar ingrediente: frango, nutella, catupiry…" aria-label="Buscar no cardápio">
   <div class="lista" id="lista"></div>
   <p class="nota">Preços de referência do cardápio de delivery. Valores sujeitos a alteração.</p>
-  <div class="cta-centro pedir" style="justify-content:center"><a class="btn ifood" data-l="ifood" href="#" target="_blank" rel="noopener">Pedir no iFood</a><a class="btn n99" data-l="n99" href="#" target="_blank" rel="noopener">Pedir no 99Food</a><a class="btn wa" data-l="wa" href="#" target="_blank" rel="noopener">Pedir pelo WhatsApp</a></div>
+  <div class="cta-centro pedir" style="justify-content:center"><a class="btn ifood" data-l="ifood" href="#" target="_blank" rel="noopener">Pedir no iFood</a><a class="btn n99" data-l="n99" href="#" target="_blank" rel="noopener">Pedir no 99Food</a><a class="btn wa" data-l="wa" href="#" target="_blank" rel="noopener">Pedir pelo WhatsApp</a><a class="btn cardapio" data-l="cardapio" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M4 4h12a2 2 0 0 1 2 2v14H6a2 2 0 0 1-2-2V4Zm3 4h8v2H7V8Zm0 4h8v2H7v-2Zm13-6h1v15a1 1 0 0 1-1 1h-1V6h1Z"/></svg>Cardápio completo</a></div>
 </div></section>
 
 <section class="creme" id="sobre"><div class="wrap sobre">
@@ -391,19 +393,19 @@ document.getElementById('form-bolo').onsubmit=e=>{
 const LOJAS={
   tereza:{num:'Loja 1',nome:'Loja 1 – Jd. Santa Tereza',curto:'Santa Tereza',end:'Rua Cerqueira César, 711 – Jardim Santa Tereza',wa:'5511951586920',fone:'(11) 95158-6920',
     ifood:'https://www.ifood.com.br/delivery/embu-das-artes-sp/a-melhor-tapioca-da-regiao---tereza-jardim-santa-tereza/dd59dbe6-2971-47c1-934a-a8a09a7af55a',n99:'https://oia.99app.com/dlp9/9SlfAA',ig:'amelhortapioca_da_regiao1',
-    combo:'https://amelhortapioca.mistercheff.com.br/categorias/155-_combo-promocional'},
+    combo:'https://amelhortapioca.mistercheff.com.br/categorias/155-_combo-promocional',cardapio:'https://amelhortapioca.mistercheff.com.br/'},
   olinda:{num:'Loja 2',nome:'Loja 2 – Vila Olinda',curto:'Vila Olinda',end:'Rua Francisco Gizeudo Honório, 25 – Vila Olinda',wa:'5511953495000',fone:'(11) 95349-5000',
     ifood:'https://www.ifood.com.br/delivery/embu-das-artes-sp/a-melhor-tapioca-da-regiao--vila-olinda-vila-olinda/11324fee-7ba0-492a-9c81-2cf7d37d279e',n99:'https://oia.99app.com/dlp9/ektW5u',ig:'amelhortapioca_da_regiao2',
-    combo:'https://amelhortapiocadaregiaovilaolinda.mistercheff.com.br/categorias/157-_combo-promocional'},
+    combo:'https://amelhortapiocadaregiaovilaolinda.mistercheff.com.br/categorias/157-_combo-promocional',cardapio:'https://amelhortapiocadaregiaovilaolinda.mistercheff.com.br/'},
   eduardo:{num:'Loja 3',nome:'Loja 3 – Santo Eduardo',curto:'Santo Eduardo',end:'Rua Central, 306 – Santo Eduardo',wa:'5511980745971',fone:'(11) 98074-5971',
     ifood:'https://www.ifood.com.br/delivery/embu-das-artes-sp/a-melhor-tapioca-da-regiao-santo-eduardo-jardim-dom-jose/bf1aee2f-d8ef-406a-b94b-57e6f624fa40',n99:'https://oia.99app.com/dlp9/5qGrfg',ig:'amelhortapioca_da_regiao3',
-    combo:'https://amelhortapiocadaregiaosantoeduardo.mistercheff.com.br/categorias/154-_combo-promocional'}
+    combo:'https://amelhortapiocadaregiaosantoeduardo.mistercheff.com.br/categorias/154-_combo-promocional',cardapio:'https://amelhortapiocadaregiaosantoeduardo.mistercheff.com.br/'}
 };
 const msgPedido=encodeURIComponent('Olá! Vim pelo site e gostaria de fazer um pedido.');
 const local=l=>encodeURIComponent(l.end.replace(' – ',', ')+', Embu das Artes - SP');
 const links={
   wa:l=>'https://wa.me/'+l.wa+'?text='+msgPedido,
-  ifood:l=>l.ifood, n99:l=>l.n99, combo:l=>l.combo,
+  ifood:l=>l.ifood, n99:l=>l.n99, combo:l=>l.combo, cardapio:l=>l.cardapio,
   insta:l=>'https://www.instagram.com/'+l.ig+'/',
   rota:l=>'https://www.google.com/maps/dir/?api=1&destination='+local(l)
 };
