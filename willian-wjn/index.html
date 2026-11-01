@@ -25,6 +25,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@1,600;1,700;1,800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Google tag (gtag.js) -->
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -38,7 +39,7 @@
   "address":{"@type":"PostalAddress","streetAddress":"R. Arco-Íris, 150 - Jardim Vitória","addressLocality":"Embu das Artes","addressRegion":"SP","postalCode":"06810-860","addressCountry":"BR"},
   "areaServed":["Embu das Artes","São Paulo","Região metropolitana de São Paulo"],
   "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"07:00","closes":"20:00"}],
-  "sameAs":["https://www.instagram.com/williantiagonunes"]
+  "sameAs":["https://www.instagram.com/williantiagonunes","https://www.tiktok.com/@eletricista.wjn"]
 }
 </script>
 <style>
@@ -122,6 +123,27 @@ textarea{min-height:90px;resize:vertical}
 .row a:hover{color:var(--yel)}
 .map{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);min-height:380px}
 .map iframe{width:100%;height:100%;min-height:380px;border:0;filter:grayscale(.3) contrast(1.05)}
+#orcamento{border-top:1px solid var(--line)}
+/* portfolio */
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.tab{background:transparent;border:1px solid rgba(255,255,255,.22);color:var(--ink);padding:10px 20px;border-radius:99px;font:600 .95rem 'Barlow',sans-serif;cursor:pointer;transition:.2s}
+.tab:hover{border-color:var(--yel);color:var(--yel)}
+.tab.on{background:var(--yel);border-color:var(--yel);color:var(--navy)}
+.gal{columns:3;column-gap:16px}
+.it{break-inside:avoid;margin:0 0 16px;position:relative;border-radius:14px;overflow:hidden;background:var(--navy-3);border:1px solid var(--line);cursor:zoom-in}
+.it[hidden]{display:none}
+.it img,.it video{width:100%;height:auto;display:block;transition:transform .4s}
+.it:hover img{transform:scale(1.04)}
+.it figcaption{position:absolute;inset:auto 0 0 0;padding:34px 14px 12px;background:linear-gradient(0deg,rgba(8,27,56,.92),transparent);font-weight:600;font-size:.92rem;color:#fff;pointer-events:none}
+.it.vid{cursor:default}
+.it.vid figcaption{position:static;background:var(--navy-3);padding:10px 14px}
+.lb{position:fixed;inset:0;z-index:80;background:rgba(4,12,26,.94);display:none;align-items:center;justify-content:center;padding:20px}
+.lb.open{display:flex}
+.lb img{max-width:100%;max-height:86vh;border-radius:10px}
+.lb p{position:absolute;bottom:18px;left:0;right:0;text-align:center;color:#fff;font-weight:600}
+.lb button{position:absolute;background:rgba(255,255,255,.12);border:0;color:#fff;width:48px;height:48px;border-radius:50%;font-size:1.6rem;cursor:pointer}
+.lb button:hover{background:var(--yel);color:var(--navy)}
+.lb .x{top:16px;right:16px}.lb .pv{left:12px;top:50%}.lb .nx{right:12px;top:50%}
 /* faq */
 details{border:1px solid var(--line);border-radius:14px;background:rgba(255,255,255,.03);margin-bottom:12px}
 summary{padding:20px 24px;font-weight:600;font-size:1.05rem;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;color:#fff}
@@ -145,6 +167,7 @@ footer{padding:40px 0 100px;border-top:1px solid var(--line);color:var(--mut);fo
 .wa:hover{transform:scale(1.08)}
 .wa svg{width:32px;height:32px;fill:#fff}
 @media(max-width:900px){
+ .gal{columns:2}
  .grid{grid-template-columns:1fr 1fr}
  .qbox,.area{grid-template-columns:1fr;gap:32px}
  nav{position:fixed;inset:68px 0 auto 0;background:var(--navy-2);border-bottom:1px solid var(--line);display:none;padding:20px}
@@ -173,6 +196,7 @@ footer{padding:40px 0 100px;border-top:1px solid var(--line);color:var(--mut);fo
     <nav id="menu">
       <ul>
         <li><a class="l" href="#servicos">Serviços</a></li>
+        <li><a class="l" href="#portfolio">Portfólio</a></li>
         <li><a class="l" href="#orcamento">Orçamento</a></li>
         <li><a class="l" href="#contato">Contato</a></li>
         <li><a class="l" href="#duvidas">Dúvidas</a></li>
@@ -208,9 +232,39 @@ footer{padding:40px 0 100px;border-top:1px solid var(--line);color:var(--mut);fo
       <article class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-4 7 4v13M9 21v-5h6v5"/></svg></div><h3>Comercial</h3><p>Instalações elétricas para lojas, escritórios e estabelecimentos comerciais.</p></article>
       <article class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.2-.5-.5-2.2z"/></svg></div><h3>Manutenção</h3><p>Manutenção preventiva e corretiva para evitar curtos, quedas de energia e desperdício.</p></article>
       <article class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>Segurança</h3><p>Aterramento, DPS e disjuntores para proteger pessoas e equipamentos.</p></article>
-      <article class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.6.6 1 1.4 1 2.2V16h6v-.3c0-.8.4-1.6 1-2.2A6 6 0 0 0 12 3z"/></svg></div><h3>Iluminação</h3><p>Luminárias, spots, lustres, fitas de LED e iluminação externa.</p></article>
+      <article class="card"><div class="ico"><svg viewBox="0 0 24 24"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.6.6 1 1.4 1 2.2V16h6v-.3c0-.8.4-1.6 1-2.2A6 6 0 0 0 12 3z"/></svg></div><h3>Iluminação interna e externa</h3><p>Instalação de luminárias, spots, lustres e fitas de LED, tanto em ambientes internos quanto em áreas externas.</p></article>
       <article class="card urg"><div class="ico"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></div><h3>Urgências 24h</h3><p>Atendimento emergencial para curto-circuito, falta de energia e falhas elétricas.</p></article>
     </div>
+  </div>
+</section>
+
+<section class="sec quote" id="portfolio">
+  <div class="wrap">
+    <div class="sec-h"><span class="eyebrow">Portfólio</span><h2>Trabalhos executados</h2><p>Alguns serviços feitos pelo Willian: iluminação, quadros de distribuição e padrão de medidores.</p></div>
+    <div class="tabs" role="tablist">
+      <button class="tab on" data-f="all" role="tab" aria-selected="true">Todos</button>
+      <button class="tab" data-f="luz" role="tab" aria-selected="false">Iluminação</button>
+      <button class="tab" data-f="quadro" role="tab" aria-selected="false">Quadros e medidores</button>
+    </div>
+    <div class="gal" id="gal">
+      <figure class="it" data-c="luz"><img src="img/portfolio/p01.jpg" alt="Perfil de LED linear embutido no teto" loading="lazy"><figcaption>Perfil de LED linear</figcaption></figure>
+      <figure class="it" data-c="luz"><img src="img/portfolio/p18.jpg" alt="Trilho com spots instalado no teto" loading="lazy"><figcaption>Trilho com spots</figcaption></figure>
+      <figure class="it" data-c="quadro"><img src="img/portfolio/p13.jpg" alt="Quadro de distribuição com disjuntores organizados" loading="lazy"><figcaption>Quadro de distribuição</figcaption></figure>
+      <figure class="it" data-c="luz"><img src="img/portfolio/p20.jpg" alt="Pendentes decorativos instalados" loading="lazy"><figcaption>Pendentes decorativos</figcaption></figure>
+      <figure class="it" data-c="luz"><img src="img/portfolio/p22.jpg" alt="Fita de LED em bancada de madeira" loading="lazy"><figcaption>Fita de LED em bancada</figcaption></figure>
+      <figure class="it" data-c="quadro"><img src="img/portfolio/p08.jpg" alt="Padrão de medidores de energia" loading="lazy"><figcaption>Padrão de medidores</figcaption></figure>
+      <figure class="it" data-c="luz"><img src="img/portfolio/p12.jpg" alt="Iluminação externa com arandelas no muro" loading="lazy"><figcaption>Iluminação externa</figcaption></figure>
+      <figure class="it" data-c="luz"><img src="img/portfolio/p15.jpg" alt="Ambiente com spots e pendentes instalados" loading="lazy"><figcaption>Spots e pendentes</figcaption></figure>
+      <figure class="it" data-c="quadro"><img src="img/portfolio/p14.jpg" alt="Quadro de distribuição aberto com circuitos identificados" loading="lazy"><figcaption>Quadro com circuitos organizados</figcaption></figure>
+      <figure class="it" data-c="luz"><img src="img/portfolio/p21.jpg" alt="Spots de sobrepor no teto" loading="lazy"><figcaption>Spots de sobrepor</figcaption></figure>
+      <figure class="it" data-c="quadro"><img src="img/portfolio/p07.jpg" alt="Quadro de disjuntores embutido na parede" loading="lazy"><figcaption>Quadro de disjuntores embutido</figcaption></figure>
+      <figure class="it" data-c="luz"><img src="img/portfolio/p04.jpg" alt="Iluminação linear e spot direcionável" loading="lazy"><figcaption>Iluminação linear</figcaption></figure>
+      <figure class="it" data-c="quadro"><img src="img/portfolio/p10.jpg" alt="Instalação de medidores de energia" loading="lazy"><figcaption>Instalação de medidores</figcaption></figure>
+      <figure class="it" data-c="luz"><img src="img/portfolio/p19.jpg" alt="Pendentes e spots no teto" loading="lazy"><figcaption>Pendentes e spots</figcaption></figure>
+      <figure class="it vid" data-c="quadro"><video controls muted playsinline preload="none" poster="img/portfolio/v01.jpg"><source src="img/portfolio/v01.mp4" type="video/mp4"></video><figcaption>Quadro de distribuição (vídeo)</figcaption></figure>
+      <figure class="it vid" data-c="quadro"><video controls muted playsinline preload="none" poster="img/portfolio/v02.jpg"><source src="img/portfolio/v02.mp4" type="video/mp4"></video><figcaption>Quadro de disjuntores (vídeo)</figcaption></figure>
+    </div>
+    <p style="text-align:center;margin-top:28px"><a class="btn btn-y" href="#" data-wa="Olá! Vi o portfólio no site e gostaria de solicitar um orçamento."><svg class="i" viewBox="0 0 24 24"><use href="#i-wa"/></svg>Quero um serviço assim</a></p>
   </div>
 </section>
 
@@ -263,6 +317,7 @@ footer{padding:40px 0 100px;border-top:1px solid var(--line);color:var(--mut);fo
         <div class="row"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></div><div><b>Endereço</b><span>R. Arco-Íris, 150 – Jardim Vitória<br>Embu das Artes – SP, 06810-860</span></div></div>
         <div class="row"><div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><b>Horário</b><span>Segunda a sábado, das 7h às 20h<br>Urgências 24h</span></div></div>
         <div class="row"><div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8"/></svg></div><div><b>Instagram</b><a href="https://www.instagram.com/williantiagonunes" target="_blank" rel="noopener">@williantiagonunes</a></div></div>
+        <div class="row"><div class="ico"><svg viewBox="0 0 24 24"><path d="M14 3v11.5a3.5 3.5 0 1 1-3.500-3.500M14 3c.3 2.600 2 4.300 5 4.500"/></svg></div><div><b>TikTok</b><a href="https://www.tiktok.com/@eletricista.wjn" target="_blank" rel="noopener">@eletricista.wjn</a></div></div>
       </div>
       <div class="map"><iframe title="Mapa: Eletricista WJN em Embu das Artes" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=R.+Arco-%C3%8Dris,+150+-+Jardim+Vit%C3%B3ria,+Embu+das+Artes+-+SP,+06810-860&output=embed"></iframe></div>
     </div>
@@ -295,9 +350,11 @@ footer{padding:40px 0 100px;border-top:1px solid var(--line);color:var(--mut);fo
   <div class="wrap f">
     <div class="brand"><img src="img/simbolo.svg" alt="" width="46" height="38" loading="lazy"><span class="brand-t">Eletricista WJN</span></div>
     <div>© 2026 Eletricista WJN – Willian. Todos os direitos reservados.</div>
-    <div class="soc"><a href="tel:+5511949111172">(11) 94911-1172</a><a href="https://www.instagram.com/williantiagonunes" target="_blank" rel="noopener">Instagram</a></div>
+    <div class="soc"><a href="tel:+5511949111172">(11) 94911-1172</a><a href="https://www.instagram.com/williantiagonunes" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@eletricista.wjn" target="_blank" rel="noopener">TikTok</a></div>
   </div>
 </footer>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada"><button class="x" aria-label="Fechar">×</button><button class="pv" aria-label="Anterior">‹</button><img alt=""><button class="nx" aria-label="Próxima">›</button><p></p></div>
 
 <a class="wa" href="#" data-wa="Olá! Gostaria de solicitar um orçamento." aria-label="Chamar no WhatsApp"><svg viewBox="0 0 24 24"><use href="#i-wa"/></svg></a>
 
@@ -311,9 +368,15 @@ footer{padding:40px 0 100px;border-top:1px solid var(--line);color:var(--mut);fo
   var N='5511949111172';
   function wa(t){return 'https://wa.me/'+N+'?text='+encodeURIComponent(t)}
   document.querySelectorAll('[data-wa]').forEach(function(a){a.href=wa(a.getAttribute('data-wa'));a.target='_blank';a.rel='noopener'});
+  function track(){})}
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a');
+    if(a&&/^(https:\/\/wa\.me\/|tel:)/.test(a.href))track();
+  });
   var f=document.getElementById('f');
   f.addEventListener('submit',function(e){
     e.preventDefault();
+    track();
     var v=function(i){return document.getElementById(i).value.trim()};
     var m='Olá! Gostaria de solicitar um orçamento.\n\nServiço: '+v('s')+'\nLocal: '+v('l');
     if(v('b'))m+='\nBairro/cidade: '+v('b');
@@ -321,6 +384,23 @@ footer{padding:40px 0 100px;border-top:1px solid var(--line);color:var(--mut);fo
     if(document.getElementById('u').checked)m+='\n\n⚠️ É uma urgência.';
     window.open(wa(m),'_blank','noopener');
   });
+  var its=[].slice.call(document.querySelectorAll('#gal .it'));
+  document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){
+    document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('on');x.setAttribute('aria-selected','false')});
+    t.classList.add('on');t.setAttribute('aria-selected','true');
+    var f=t.getAttribute('data-f');
+    its.forEach(function(i){i.hidden=!(f==='all'||i.getAttribute('data-c')===f)});
+  })});
+  var lb=document.getElementById('lb'),lbi=lb.querySelector('img'),lbp=lb.querySelector('p'),cur=0;
+  function pics(){return its.filter(function(i){return !i.hidden&&!i.classList.contains('vid')})}
+  function show(n){var p=pics();if(!p.length)return;cur=(n+p.length)%p.length;var im=p[cur].querySelector('img');lbi.src=im.src;lbi.alt=im.alt;lbp.textContent=p[cur].querySelector('figcaption').textContent}
+  its.forEach(function(i){if(!i.classList.contains('vid'))i.addEventListener('click',function(){show(pics().indexOf(i));lb.classList.add('open')})});
+  function close(){lb.classList.remove('open')}
+  lb.querySelector('.x').addEventListener('click',close);
+  lb.querySelector('.pv').addEventListener('click',function(e){e.stopPropagation();show(cur-1)});
+  lb.querySelector('.nx').addEventListener('click',function(e){e.stopPropagation();show(cur+1)});
+  lb.addEventListener('click',function(e){if(e.target===lb)close()});
+  document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(cur-1);if(e.key==='ArrowRight')show(cur+1)});
   var bg=document.querySelector('.burger'),nv=document.getElementById('menu');
   bg.addEventListener('click',function(){var o=nv.classList.toggle('open');bg.setAttribute('aria-expanded',o)});
   nv.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){nv.classList.remove('open');bg.setAttribute('aria-expanded',false)})});
